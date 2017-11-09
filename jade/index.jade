@@ -7,9 +7,28 @@ head
 	meta(name="viewport", content="width=device-width, initial-scale=1.0")
 	meta(http-equiv="X-UA-Compatible", content="ie=edge")
 	title vue-test
-	script(src='https://cdn.jsdelivr.net/npm/vue')
-	link(rel="stylesheet", href="")
+	script(src='https://unpkg.com/vue')
+	script(src='https://unpkg.com/babel-standalone@6/babel.min.js')
+
 
 body
-	#app.mainContainer
-		h1 1235454654
+	#todo-list
+		h2 TODO APP
+		p enter new todo to add todo list, and press x on the todo item to delete them
+		ul
+			li(is='todo-item',v-for='(todo,index) in todos',:todo='todo',@remove='removeTodo(index)')
+		input(type="text",@keyup.enter='addTodo',v-model='newTodo',placeHolder='plz enter new todo')
+
+	hr
+	#app
+		child(:msg='msg2')
+
+
+
+
+
+
+
+
+
+	script(src='js/index.js',type='text/babel')

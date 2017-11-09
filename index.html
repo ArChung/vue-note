@@ -5,11 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>vue-test</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <link rel="stylesheet" href=""/>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
-  <div id="app" class="mainContainer">
-    <h1>1235454654</h1>
+  <div id="todo-list">
+    <h2>TODO APP</h2>
+    <p>enter new todo to add todo list, and press x on the todo item to delete them</p>
+    <ul>
+      <li is="todo-item" v-for="(todo,index) in todos" :todo="todo" @remove="removeTodo(index)"></li>
+    </ul>
+    <input type="text" @keyup.enter="addTodo" v-model="newTodo" placeHolder="plz enter new todo"/>
   </div>
+  <hr/>
+  <div id="app">
+    <child :msg="msg2"></child>
+  </div>
+  <script src="js/index.js" type="text/babel"></script>
 </body>
